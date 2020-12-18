@@ -1,0 +1,19 @@
+{
+  "name": "ygemstakingsnapshot",
+  "version": "1.0.0",
+  "description": "Snapshot of holders - amounts on ygemStaking contract",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YGEM-finance/ygemStakingSnapshot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YGEM-finance/ygemStakingSnapshot/issues"
+  },
+  "homepage": "https://github.com/YGEM-finance/ygemStakingSnapshot#readme"
+}
