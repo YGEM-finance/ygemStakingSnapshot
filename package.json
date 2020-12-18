@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/YGEM-finance/ygemStakingSnapshot/issues"
   },
-  "homepage": "https://github.com/YGEM-finance/ygemStakingSnapshot#readme"
+  "homepage": "https://github.com/YGEM-finance/ygemStakingSnapshot#readme",
+  "dependencies": {
+    "axios": "^0.21.0"
+  }
 }
