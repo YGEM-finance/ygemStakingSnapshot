@@ -8,7 +8,6 @@ async function getStakerInfo() {
 
         const response = await axios.get(
             `https://api.etherscan.io/api?module=account&action=tokentx&address=${ContractAddress}&apikey=WIKDHW4267QM5Z2HCUVKQ2N81B6U4FEZWK`);
-        let stakeInfo = [0, '0'];
 
         const stakingEventsArr = response.data.result;
 
@@ -37,9 +36,34 @@ async function getStakerInfo() {
             console.log('historyStakers.json created.');
         });
 
+        let stakesInfo = [];
 
+        historyStakers.forEach(address => {
+            let addressStake = { staker: address, amount: 0 };
+            fullDataBeforeSnapshot.forEach(element => {
+                if (element.from == address) {
+                    //console.log("Stake");
+                    //console.log(element);
+                    addressStake.amount += parseInt(element.value);
 
-        console.log(`stakeAmount: ${stakeInfo[0]}\nlastStakeDate:${stakeInfo[1]} `);
+                    addressStake.lastStakeDate = element.timeStamp;
+                }
+                if (element.to == address) {
+                    //console.log("UNStake");
+                    //console.log(element);
+                    addressStake.amount = 0;
+                    addressStake.lastStakeDate = "0";
+                }
+            });
+            if(addressStake.amount != 0)
+                stakesInfo.push(addressStake);
+        });
+
+        fs.writeFile('YgemStakeSnapshot.json', JSON.stringify(stakesInfo), function (err) {
+            if (err) return console.log(err);
+            console.log('YgemStakeSnapshot.json created.');
+        });
+        console.log(stakesInfo);
 
     } catch (error) {
         console.error(error);
