@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/YGEM-finance/ygemStakingSnapshot#readme",
   "dependencies": {
-    "axios": "^0.21.0"
+    "@binance-chain/javascript-sdk": "^4.1.1",
+    "axios": "^0.21.0",
+    "web3": "^1.3.4"
   }
 }
